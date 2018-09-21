@@ -8,8 +8,46 @@
     <link rel="stylesheet" src="assets/style.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="assets/app.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
 <body>
-    
+    <div class="container">
+
+        <div class="row">
+          <div class="col-sm border border-primary">
+                <input id="userSearch" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search by song name">
+                <button id="search" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </div>
+          <div class="col-sm border border-secondary">
+          </div>
+          <div class="col-sm border border-danger">
+            <img class="titlelogo"src="assets/images/logoHarmony.png">
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-sm border border-danger">
+                <div class="row">
+                    Now Playing:
+                </div>
+                <div class="row">
+                    Song title:
+                </div>
+                <div class="row">
+                        <img src="https://via.placeholder.com/350x350">
+                </div>
+                <div class="row">
+                        Song control buttons
+                </div>
+              </div>
+              <div class="col-sm border border-secondary">
+                  Lyrics:
+            </div>
+            <div class="col-sm border border-danger">
+                    Events near you:
+                  </div>
+        </div>
+      </div>
 </body>
 </html>
