@@ -51,5 +51,8 @@ $(document).ready(function () {
         });
     });
 
+    var clone = window.XMLHttpRequest.prototype.send;
+    console.log("request is: " + clone);
+
 
 });
