@@ -9,6 +9,9 @@ var redirURI = "&redirect_uri=https://claudiact6.github.io/group-project-1/";
 var embedURL = "https://open.spotify.com/embed/";
 //https://accounts.spotify.com/authorize?client_id=aba6887b24004a76ae602f0e4e0d6da8&redirect_uri=https:%2F%2Fclaudiact6.github.io%2Fgroup-project-1%2F&response_type=token
 
+//variables for TicketMaster API
+var countryCode = 'US';
+
 $(document).ready(function () {
 /*     //Get access token from Spotify
     $.ajax({
@@ -59,4 +62,6 @@ $(document).ready(function () {
             $("iframe").attr("src", embedURL + uriSplit[1] + "/" + uriSplit[2]);
         });
     });
+
+
 });
