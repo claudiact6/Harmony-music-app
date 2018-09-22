@@ -11,6 +11,13 @@ $(document).ready(function () {
         //Assign term to search for based on user input
         searchTerm = $("#userSearch").val();
         //Search Lyrics for artisName and songName
+    });
+    
+    $("#lyricsButton").on("click", function(event) {
+        var songName = $(".as").text();
+        console.log(songName);
+        artistName = searchTerm;
+        console.log(artistName);
         $.ajax({
             type:"GET",
             url:"https://orion.apiseeds.com/api/music/lyric/"+ artistName +"/"+ songName + "?apikey=ZozHgjxaFPqVspfH5KlFNVz4wbvJSpFZb2GGjuDEwnVNznnzEGHMBQsZgXQHMOLF",

@@ -52,7 +52,7 @@ $(document).ready(function () {
     });
 
     $(".ay").on("click", function(event) {
-        console.log(event);
+        var song = $(this).text();
     });
 
 
