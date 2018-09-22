@@ -51,5 +51,9 @@ $(document).ready(function () {
         });
     });
 
+    $("#spotifyPlayer").on("click", function(event) {
+        console.log(event);
+    });
+
 
 });
