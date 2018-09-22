@@ -7,7 +7,7 @@ var clientSecret = "384ae6bce3aa4ea2910d8065f0a77ea9";
 var embedURL = "https://open.spotify.com/embed/";
 
 //variables for TicketMaster API
-var countryCode = 'MX';
+var countryCode = 'US';
 
 $(document).ready(function () {
     //Get access token from Spotify
@@ -49,18 +49,5 @@ $(document).ready(function () {
         });
     });
 
-    $.ajax({
-        type:"GET",
-        url:"https://app.ticketmaster.com/discovery/v2/events.json?keyword="+ searchTerm + "&source=universe&countryCode="+ countryCode + "&apikey=YMjgo66wpjZ9AqXLMjxVNePVxrVlWqmf",
-        async:true,
-        dataType: "json",
-        success: function(json) {
-                    console.log(json);
-                    // Parse the response.
-                    // Do other things.
-                 },
-        error: function(xhr, status, err) {
-                    // This time, we do not end up here!
-                 }
-      });
+
 });
