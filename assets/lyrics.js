@@ -14,6 +14,9 @@ $(document).ready(function () {
     });
     
     $("#lyricsButton").on("click", function(event) {
+        //Prevent default behavior
+        event.preventDefault();
+        console.log("clicked lyrics button");
         var songName = $(".as").text();
         console.log(songName);
         artistName = searchTerm;
