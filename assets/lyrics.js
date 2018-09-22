@@ -17,8 +17,9 @@ $(document).ready(function () {
         //Prevent default behavior
         event.preventDefault();
         console.log("clicked lyrics button");
+        debugger;
         console.log($(".as.at.ar.al.au.av.aw.ax.ay"));
-        var songName = $(".as.at.ar.al.au.av.aw.ax.ay").html();
+        var songName = $(".as.at.ar.al.au.av.aw.ax.ay").text();
         console.log(songName);
         artistName = searchTerm;
         console.log(artistName);
