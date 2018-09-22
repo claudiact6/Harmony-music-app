@@ -7,7 +7,7 @@
     <title>Harmony</title>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="assets/app.js"></script>
-    <script type="text/javascript" src="assets/ticketmaster.js"></script>
+    <script type="text/javascript" src="assets/lyrics.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <!-- GOOGLE FONTS -->
@@ -19,7 +19,6 @@
 
 <!-- NAV BAR-->
     <div class="row">
-<<<<<<< HEAD
           <div class="col-sm-5">
                 <input id="userSearch" class="search mr-sm-2" type="search" placeholder="Search by song, artist or album" aria-label="Search by song name">
                 <button id="search" class="btn btn-outline-success my-sm-0 searchButton" type="submit">►</button>
@@ -43,7 +42,7 @@
                 </div>
                 <br>
                 <div class="row" id="spotifyPlayer">
-                    <iframe src="https://open.spotify.com/embed/" width="300" height="380" frameborder="0" allowtransparency="true"
+                    <iframe src="https://open.spotify.com/embed/" id="spotifyPlayer" width="300" height="380" frameborder="0" allowtransparency="true"
                     allow="encrypted-media"></iframe>
                 </div>
                 <br>
@@ -54,6 +53,8 @@
           <div class="col-sm">
                 <div class="row titles">
                   Lyrics:
+                  <br>
+                  <button id="lyricsButton" class="btn btn-outline-success my-sm-0" type="submit">Refresh Lyrics</button>
                 </div>
                 <div class="row marquee" id="lyrics">
                     <pre> 
@@ -177,19 +178,19 @@ Shine Bright like a diamond
                                     <th scope="col"><img class="locationlogo mx-auto" src="assets/images/ticket.png"></th>
                                   </tr>
                                 </thead>
-                                <tbody class = 'tableticket'>
-                                  <tr class = 'firstDate'>
-                                    <th scope="row" id = 'heading'>1 December</th>
-                                    <td class = 'venue'>Palacio de los deportes</td>
+                                <tbody>
+                                  <tr>
+                                    <th scope="row">1 December</th>
+                                    <td>Palacio de los deportes</td>
                                     <td><button type="button" class="btn btn-outline-primary ticket">More Info</button></td>
                                   </tr>
-                                  <tr class = 'secondDate'>
-                                    <th scope="row" id = 'secondDate'>2 January</th>
+                                  <tr>
+                                    <th scope="row">2 January</th>
                                     <td>Santa fe concert hall</td>
                                     <td><button type="button" class="btn btn-outline-primary ticket">More Info</button></td>
                                   </tr>
-                                  <tr class = 'thirdDate'>
-                                    <th scope="row" id = 'thirdDate'>3 February</th>
+                                  <tr>
+                                    <th scope="row">3 February</th>
                                     <td >Auditorio Nacional</td>
                                     <td><button type="button" class="btn btn-outline-primary ticket">More Info</button></td>
                                   </tr>
@@ -200,14 +201,7 @@ Shine Bright like a diamond
 <!-- END ////TICKETMASTER API- EVENTS NEAR YOU-->
 
      </div>
-=======
-            <img class="mainlogo loginbutton3" src="assets/images/logoHarmony.png">
-            <p class="loginbutton2">Please log in into your spotify account to start the party</p>
-            <button type="button" class="btn btn-success loginbutton" id="login">Log in</button>
-         </div>
->>>>>>> 22050b176fa133bc635c49df2801ea41d8964a3c
 </div>
 <!-- BODY COMPLETE CONTENT-->
 </body>
 </html>
-
