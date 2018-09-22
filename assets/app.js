@@ -51,9 +51,5 @@ $(document).ready(function () {
         });
     });
 
-    $(".ay").on("click", function(event) {
-        var song = $(this).text();
-    });
-
 
 });
