@@ -8,8 +8,7 @@ var responseType = "&response_type=token";
 var redirURI = "&redirect_uri=https://claudiact6.github.io/group-project-1/player/";
 var embedURL = "https://open.spotify.com/embed/";
 
-//variables for TicketMaster API
-var countryCode = 'US';
+
 
 $(document).ready(function () {
 
