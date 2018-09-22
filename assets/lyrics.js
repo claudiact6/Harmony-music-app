@@ -1,4 +1,4 @@
-//variables for TicketMaster API
+//variables for Lyrics API
 var countryCode = 'US';
 var searchTerm = '';
 
@@ -10,23 +10,24 @@ $(document).ready(function () {
         event.preventDefault();
         //Assign term to search for based on user input
         searchTerm = $("#userSearch").val();
-        console.log(searchTerm);
-        //Search Spotify for search term
+        //Search Lyrics for artisName and songName
         $.ajax({
             type:"GET",
-            url:"https://app.ticketmaster.com/discovery/v2/events.json?keyword="+ searchTerm + "&source=universe&countryCode="+ countryCode + "&apikey=YMjgo66wpjZ9AqXLMjxVNePVxrVlWqmf",
+            url:"https://orion.apiseeds.com/api/music/lyric/"+ artistName +"/"+ songName + "?apikey=ZozHgjxaFPqVspfH5KlFNVz4wbvJSpFZb2GGjuDEwnVNznnzEGHMBQsZgXQHMOLF",
             async:true,
             dataType: "json",
-            success: function(json) {
-                        console.log(json);
+            success: function(lyrics) {
+                        console.log(lyrics.result.track[text]);
                         // Parse the response.
                         // Do other things.
+                        $("pre").html(lyrics.result.track[text]);
             },
             error: function(xhr, status, err) {
-                        // This time, we do not end up here!
+                $("pre").html("Sorry we could not find the lyrics for your song");
             }
         });
     });
 
 
 });
+
