@@ -1,0 +1,10 @@
+.titlelogo{
+    width: 250px;
+    height: 50px;
+}
+
+body {
+    background-image: url("images/wallpaper.jpg");
+    background-repeat: repeat-x;
+    background: black;
+}
