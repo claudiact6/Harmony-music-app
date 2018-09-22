@@ -6,6 +6,9 @@ var clientID = "aba6887b24004a76ae602f0e4e0d6da8";
 var clientSecret = "384ae6bce3aa4ea2910d8065f0a77ea9";
 var embedURL = "https://open.spotify.com/embed/";
 
+//variables for TicketMaster API
+var countryCode = 'US';
+
 $(document).ready(function () {
     //Get access token from Spotify
     $.ajax({
@@ -45,4 +48,6 @@ $(document).ready(function () {
             $("iframe").attr("src", embedURL + uriSplit[1] + "/" + uriSplit[2]);
         });
     });
+
+
 });
