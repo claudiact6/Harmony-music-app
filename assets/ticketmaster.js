@@ -1,11 +1,11 @@
 //variables for TicketMaster API
 var countryCode = 'US';
 var searchTerm = '';
-var tbody = null;
+var tbody = $('<tbody>');
 var ticketDate = null;
-var ticketRow = null;
-var ticketVenue = null;
-var ticketHeading = null;
+var ticketRow = $('<tr>');
+var ticketVenue = $('<td>');
+var ticketHeading = $('<th>');
 
 
 $(document).ready(function () {
@@ -16,7 +16,7 @@ $(document).ready(function () {
         //Assign term to search for based on user input
         searchTerm = $("#userSearch").val();
         console.log(searchTerm);
-        //Search Spotify for search term
+        //Search TicketMaster for search term
         $.ajax({
             type:"GET",
             url:"https://app.ticketmaster.com/discovery/v2/events.json?keyword="+ searchTerm +"&source=ticketmaster&countryCode=MX&apikey=YMjgo66wpjZ9AqXLMjxVNePVxrVlWqmf",
@@ -26,7 +26,11 @@ $(document).ready(function () {
                         console.log(json);
                         if(json._embedded){
                             console.log('yay');
-                            $('.tableticket').empty();
+                            $('.firstDate').empty();
+                            $('.secondDate').empty();
+                            $('.thirdDate').empty();
+                            $('.firstDate').html(json._embedded.events[0].dates.start.localDate);
+                            $('#venue').text(json._embedded.events[0]._embedded.venues[0].name);
 
                             console.log(json._embedded.events[0].dates.start.localDate)
                             console.log(json._embedded.events[0].dates.start.localTime)
