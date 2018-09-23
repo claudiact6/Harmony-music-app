@@ -1,11 +1,12 @@
 //variables for TicketMaster API
-var countryCode = 'US';
 var searchTerm = '';
 var tbody = $('<tbody>');
-var ticketDate = null;
+var ticketDate = $('<th>');
 var ticketRow = $('<tr>');
 var ticketVenue = $('<td>');
 var ticketHeading = $('<th>');
+var ticketButton = $('<button>');
+var ticketLink = '';
 
 
 $(document).ready(function () {
@@ -25,17 +26,28 @@ $(document).ready(function () {
             success: function(json) {
                         console.log(json);
                         if(json._embedded){
-                            console.log('yay');
                             $('.firstDate').empty();
                             $('.secondDate').empty();
                             $('.thirdDate').empty();
-                            $('.firstDate').html(json._embedded.events[0].dates.start.localDate);
-                            $('#venue').text(json._embedded.events[0]._embedded.venues[0].name);
+                            console.log('yay');
+                            $('.firstDate').append(ticketHeading);
+                            $('.firstDate').append(ticketVenue);
+                            $('.firstDate').append(ticketButton);
+                            $(ticketHeading).html(json._embedded.events[0].dates.start.localDate + '<br>');
+                            $(ticketHeading).append(json._embedded.events[0].dates.start.localTime);
+                            $(ticketVenue).html(json._embedded.events[0]._embedded.venues[0].name);
+                            ticketLink = json._embedded.events[0]._embedded.venues[0].url;
+                            console.log(ticketLink);
+                            $(ticketButton).html('More Info');
+                            $(ticketButton).addClass('btn btn-outline-primary');
+                            $(".btn").click(function() {
+                                window.open(ticketLink, '_blank');
+                                return false;
+                            });
 
                             console.log(json._embedded.events[0].dates.start.localDate)
                             console.log(json._embedded.events[0].dates.start.localTime)
                             console.log(json._embedded.events[0]._embedded.venues[0].name)
-                            console.log(json._embedded.events[0]._embedded.venues[0].url)
                         } else {
                             console.log('nay');
                             $('.firstDate').empty();
@@ -43,7 +55,7 @@ $(document).ready(function () {
                             $('.thirdDate').empty();
                             $('.firstDate').html('<th>'+'Not Lucky! There is no concert in your Country soon.'+'</th>');
                         }
-                        // Parse the response.
+                    // Parse the response.
                         // Do other things.
             },
             error: function(xhr, status, err) {
