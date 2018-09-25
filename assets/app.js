@@ -9,9 +9,20 @@ var redirURI = "&redirect_uri=https://claudiact6.github.io/group-project-1/playe
 var embedURL = "https://open.spotify.com/embed/";
 
 
-
 $(document).ready(function () {
 
+//Firebase *********************
+    var config = {
+        apiKey: "AIzaSyAu_x49vopCuBPDIbzOChkbEmjTywGAejg",
+        authDomain: "harmony-2-7b899.firebaseapp.com",
+        databaseURL: "https://harmony-2-7b899.firebaseio.com",
+        projectId: "harmony-2-7b899",
+        storageBucket: "harmony-2-7b899.appspot.com",
+        messagingSenderId: "723221071715"
+      };    
+    firebase.initializeApp(config);
+    var database = firebase.database();
+  
     $("#login").on("click", function(event) {
         //Prevent default behavior
         event.preventDefault();
@@ -33,6 +44,11 @@ $(document).ready(function () {
         //Assign term to search for based on user input
         searchTerm = $("#userSearch").val();
         console.log(searchTerm);
+
+       //Save search term to firebase *********************
+
+          database.ref().push(searchTerm);
+
         //Search Spotify for search term
         $.ajax({
             url: urlBase + searchTerm + type,
