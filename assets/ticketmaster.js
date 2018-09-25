@@ -1,11 +1,12 @@
 //variables for TicketMaster API
-var countryCode = 'US';
 var searchTerm = '';
-var tbody = null;
-var ticketDate = null;
-var ticketRow = null;
-var ticketVenue = null;
-var ticketHeading = null;
+var tbody = $('<tbody>');
+var ticketDate = $('<th>');
+var ticketRow = $('<tr>');
+var ticketVenue = $('<td>');
+var ticketHeading = $('<th>');
+var ticketButton = $('<button>');
+var ticketLink = '';
 
 
 $(document).ready(function () {
@@ -16,7 +17,7 @@ $(document).ready(function () {
         //Assign term to search for based on user input
         searchTerm = $("#userSearch").val();
         console.log(searchTerm);
-        //Search Spotify for search term
+        //Search TicketMaster for search term
         $.ajax({
             type:"GET",
             url:"https://app.ticketmaster.com/discovery/v2/events.json?keyword="+ searchTerm +"&source=ticketmaster&countryCode=MX&apikey=YMjgo66wpjZ9AqXLMjxVNePVxrVlWqmf",
@@ -25,13 +26,32 @@ $(document).ready(function () {
             success: function(json) {
                         console.log(json);
                         if(json._embedded){
-                            console.log('yay');
-                            $('.tableticket').empty();
+                            $('.firstDate').empty();
+                            $('.secondDate').empty();
+                            $('.thirdDate').empty();
 
+                            for(var i = 0; i < json._embedded.events.length; i++){
+
+                            $('.tableticket').append(ticketRow);
+                            console.log('yay');
+                            $(ticketRow).append(ticketHeading);
+                            $(ticketRow).append(ticketVenue);
+                            $(ticketRow).append(ticketButton);
+                            $(ticketHeading).html(json._embedded.events[0].dates.start.localDate + '<br>');
+                            $(ticketHeading).append(json._embedded.events[0].dates.start.localTime);
+                            $(ticketVenue).html(json._embedded.events[0]._embedded.venues[0].name);
+                            ticketLink = json._embedded.events[0]._embedded.venues[0].url;
+                            console.log(ticketLink);
+                            $(ticketButton).html('More Info');
+                            $(ticketButton).addClass('btn btn-outline-primary');
+                            $(".btn").click(function() {
+                                window.open(ticketLink, '_blank');
+                                return false;
+                            });
+                        }
                             console.log(json._embedded.events[0].dates.start.localDate)
                             console.log(json._embedded.events[0].dates.start.localTime)
                             console.log(json._embedded.events[0]._embedded.venues[0].name)
-                            console.log(json._embedded.events[0]._embedded.venues[0].url)
                         } else {
                             console.log('nay');
                             $('.firstDate').empty();
@@ -39,7 +59,7 @@ $(document).ready(function () {
                             $('.thirdDate').empty();
                             $('.firstDate').html('<th>'+'Not Lucky! There is no concert in your Country soon.'+'</th>');
                         }
-                        // Parse the response.
+                    // Parse the response.
                         // Do other things.
             },
             error: function(xhr, status, err) {
