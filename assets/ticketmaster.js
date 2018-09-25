@@ -29,10 +29,14 @@ $(document).ready(function () {
                             $('.firstDate').empty();
                             $('.secondDate').empty();
                             $('.thirdDate').empty();
+
+                            for(var i = 0; i < json._embedded.events.length; i++){
+
+                            $('.tableticket').append(ticketRow);
                             console.log('yay');
-                            $('.firstDate').append(ticketHeading);
-                            $('.firstDate').append(ticketVenue);
-                            $('.firstDate').append(ticketButton);
+                            $(ticketRow).append(ticketHeading);
+                            $(ticketRow).append(ticketVenue);
+                            $(ticketRow).append(ticketButton);
                             $(ticketHeading).html(json._embedded.events[0].dates.start.localDate + '<br>');
                             $(ticketHeading).append(json._embedded.events[0].dates.start.localTime);
                             $(ticketVenue).html(json._embedded.events[0]._embedded.venues[0].name);
@@ -44,7 +48,7 @@ $(document).ready(function () {
                                 window.open(ticketLink, '_blank');
                                 return false;
                             });
-
+                        }
                             console.log(json._embedded.events[0].dates.start.localDate)
                             console.log(json._embedded.events[0].dates.start.localTime)
                             console.log(json._embedded.events[0]._embedded.venues[0].name)
