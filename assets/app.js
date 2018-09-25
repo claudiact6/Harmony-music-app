@@ -1,6 +1,6 @@
 var urlBase = "https://api.spotify.com/v1/search?q="
 var searchTerm = "";
-var type = "&type=artist%2Calbum%2Ctrack"
+var type = "&type=track"
 var token = "";
 var baseAuth = "https://accounts.spotify.com/authorize?client_id="
 var clientID = "aba6887b24004a76ae602f0e4e0d6da8";
