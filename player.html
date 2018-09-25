@@ -13,6 +13,7 @@
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Lobster|Orienta|Shadows+Into+Light" rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
+    <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
 </head>
 <body>
 <div class="container">
@@ -41,7 +42,7 @@
                     Now Playing:
                 </div>
                 <br>
-                <table class="table">
+                <table class="table" id="songs">
                   <tbody id="songlist">
                   </tbody>
                 </table>
@@ -167,41 +168,41 @@ Shine Bright like a diamond
             </div>
 <!-- END////MUSICMATCHX API- LYRICS-->
 
- <!-- TICKETMASTER API- EVENTS NEAR YOU-->
-        <div class="col-sm">
-                <div class="row titles">
-                    Events near you:
-                </div>
-                <br>
-                <div class="row events " id="events">
-                        <table class="table table-hover table-dark">
-                                <thead>
-                                  <tr>
-                                    <th scope="col"><img class="locationlogo mx-auto" src="assets/images/date.png"></th>
-                                    <th scope="col"><img class="locationlogo mx-auto" src="assets/images/location.png"></th>
-                                    <th scope="col"><img class="locationlogo mx-auto" src="assets/images/ticket.png"></th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <th scope="row">1 December</th>
-                                    <td>Palacio de los deportes</td>
-                                    <td><button type="button" class="btn btn-outline-primary ticket">More Info</button></td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">2 January</th>
-                                    <td>Santa fe concert hall</td>
-                                    <td><button type="button" class="btn btn-outline-primary ticket">More Info</button></td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">3 February</th>
-                                    <td >Auditorio Nacional</td>
-                                    <td><button type="button" class="btn btn-outline-primary ticket">More Info</button></td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                </div>
-        </div>
+<!-- TICKETMASTER API- EVENTS NEAR YOU-->
+<div class="col-sm">
+  <div class="row titles">
+      Events near you:
+  </div>
+  <br>
+  <div class="row events " id="events">
+          <table class="table table-hover table-dark">
+                  <thead>
+                    <tr>
+                      <th scope="col"><img class="locationlogo mx-auto" src="assets/images/date.png"></th>
+                      <th scope="col"><img class="locationlogo mx-auto" src="assets/images/location.png"></th>
+                      <th scope="col"><img class="locationlogo mx-auto" src="assets/images/ticket.png"></th>
+                    </tr>
+                  </thead>
+                  <tbody class = 'tableticket'>
+                    <tr class = 'firstDate'>
+                      <th scope="row" id = 'heading'>1 December</th>
+                      <td class = 'venue' id = 'venue'>Palacio de los deportes</td>
+                      <td><button type="button" class="btn btn-outline-primary ticket">More Info</button></td>
+                    </tr>
+                    <tr class = 'secondDate'>
+                      <th scope="row" id = 'secondDate'>2 January</th>
+                      <td>Santa fe concert hall</td>
+                      <td><button type="button" class="btn btn-outline-primary ticket">More Info</button></td>
+                    </tr>
+                    <tr class = 'thirdDate'>
+                      <th scope="row" id = 'thirdDate'>3 February</th>
+                      <td >Auditorio Nacional</td>
+                      <td><button type="button" class="btn btn-outline-primary ticket">More Info</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+  </div>
+</div>
 <!-- END ////TICKETMASTER API- EVENTS NEAR YOU-->
 
      </div>
