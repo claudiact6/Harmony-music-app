@@ -20,6 +20,12 @@
         margin-top: 15px;
     
     }
+
+    .songslist{
+        font-family: 'Orienta', sans-serif;
+        font-size: 15px;
+        text-align: left;
+    }
     
     .searchButton{
     border-radius: 100%;
