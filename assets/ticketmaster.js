@@ -44,11 +44,12 @@ $(document).ready(function () {
                             console.log(ticketLink);
                             $(ticketButton).html('More Info');
                             $(ticketButton).addClass('btn btn-outline-primary ticketButton');
+
+                        }
                             $(".ticketButton").click(function() {
                                 window.open(ticketLink, '_blank');
                                 return false;
                             });
-                        }
                             console.log(json._embedded.events[0].dates.start.localDate)
                             console.log(json._embedded.events[0].dates.start.localTime)
                             console.log(json._embedded.events[0]._embedded.venues[0].name)
