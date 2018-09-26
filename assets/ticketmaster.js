@@ -1,11 +1,7 @@
 //variables for TicketMaster API
 var searchTerm = '';
 var tbody = $('<tbody>');
-var ticketDate = $('<th>');
-var ticketRow = $('<tr>');
-var ticketVenue = $('<td>');
-var ticketHeading = $('<th>');
-var ticketButton = $('<button>');
+
 var ticketLink = '';
 
 
@@ -31,16 +27,20 @@ $(document).ready(function () {
                             $('.thirdDate').empty();
 
                             for(var i = 0; i < json._embedded.events.length; i++){
-
+                            var ticketRow = $('<tr>');
+                            var ticketVenue = $('<td>');
+                            var ticketHeading = $('<th>');
+                            var ticketButton = $('<button>');
+                            debugger;
                             $('.tableticket').append(ticketRow);
                             console.log('yay');
                             $(ticketRow).append(ticketHeading);
                             $(ticketRow).append(ticketVenue);
                             $(ticketRow).append(ticketButton);
-                            $(ticketHeading).html(json._embedded.events[0].dates.start.localDate + '<br>');
-                            $(ticketHeading).append(json._embedded.events[0].dates.start.localTime);
-                            $(ticketVenue).html(json._embedded.events[0]._embedded.venues[0].name);
-                            ticketLink = json._embedded.events[0]._embedded.venues[0].url;
+                            $(ticketHeading).html(json._embedded.events[i].dates.start.localDate + '<br>');
+                            $(ticketHeading).append(json._embedded.events[i].dates.start.localTime);
+                            $(ticketVenue).html(json._embedded.events[i]._embedded.venues[0].name);
+                            ticketLink = json._embedded.events[i]._embedded.venues[0].url;
                             console.log(ticketLink);
                             $(ticketButton).html('More Info');
                             $(ticketButton).addClass('btn btn-outline-primary ticketButton');
