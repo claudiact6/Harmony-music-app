@@ -12,9 +12,9 @@ var tracks = [];
 var sortedTracks = [];
 var track = "";
 function compare(a, b) {
+    console.log("sorting tracks");
     return b.popularity-a.popularity;
 }
-
 
 $(document).ready(function () {
     $("iframe").hide();
@@ -70,17 +70,20 @@ $(document).ready(function () {
             tracks = response.tracks.items;
             //put the songs in order
             sortedTracks = sortedTracks.sort(compare);
+            console.log(sortedTracks);
             //for loop to display songs
             for (i = 0; i < sortedTracks.length; i++) {
                 var tr = $("<tr>");
                 var td = $("<td>");
                 td.text(sortedTracks[i].name);
+                console.log("sortedTracks[i].name");
                 td.attr("class", "track");
                 td.attr("id", i);
                 tr.append(td);
                 $("#songlist").append(tr);
             }
         });
+        
         $(document).on("click", ".track", function () {
             //show player
             $("iframe").show();
