@@ -42,12 +42,15 @@
                 <div class="row titles">
                     Now Playing:
                 </div>
+                <div class="row row" id="spotifyPlayer">
+                <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                 <br>
-                <div class="row" id="spotifyPlayer">
-                    <iframe src="https://open.spotify.com/embed/" id="spotifyPlayer" width="300" height="380" frameborder="0" allowtransparency="true"
-                    allow="encrypted-media"></iframe>
-                </div>
+                <table class="table songslist" id="songs">
+                  <tbody id="songlist">
+                  </tbody>
+                </table>
                 <br>
+              </div>
           </div>
 <!-- END//// SPOTIFY API- NOW PLAYING -->
 
@@ -56,7 +59,6 @@
                 <div class="row titles">
                   Lyrics:
                   <br>
-                  <button id="lyricsButton" class="btn btn-outline-success my-sm-0" type="submit">Refresh Lyrics</button>
                 </div>
                 <div class="row marquee" id="lyrics">
                     <pre> 
