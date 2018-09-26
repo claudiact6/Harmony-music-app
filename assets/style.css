@@ -8,7 +8,7 @@
         background-image: url("images/wallpaper.jpg");
         color: white;
         background-position: center;
-        font-family: 'Shadows Into Light', cursive;
+        font-family: 'Orienta', sans-serif;
     }
     
     .search{
@@ -113,3 +113,18 @@
         width: 350px;
         height: 100px;
     }
+
+    table{
+        overflow-y:scroll;
+        height:350px;
+        display:block;
+        width: 50%;
+     }
+
+     th, td {
+        text-align: left;
+        padding: 8px;
+    }
+.nowPlaying{
+    width: 300px;
+}
