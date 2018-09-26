@@ -15,7 +15,6 @@ function compare(a, b) {
     return b.popularity-a.popularity;
 }
 
-
 $(document).ready(function () {
     $("iframe").hide();
 
@@ -48,12 +47,8 @@ $(document).ready(function () {
         var splitAuth = authURL.split("&");
         var tokenSplit = splitAuth[0].split("=");
         var token = tokenSplit[1];
-        console.log("splitAuth: " + splitAuth);
-        console.log("tokenSplit: " + tokenSplit);
-        console.log("token: " + token);
         //Assign term to search for based on user input
         searchTerm = $("#userSearch").val();
-        console.log(searchTerm);
 
         //Save search term to firebase *********************
 
@@ -69,7 +64,7 @@ $(document).ready(function () {
         }).then(function (response) {
             tracks = response.tracks.items;
             //put the songs in order
-            sortedTracks = sortedTracks.sort(compare);
+            sortedTracks = tracks.sort(compare);
             //for loop to display songs
             for (i = 0; i < sortedTracks.length; i++) {
                 var tr = $("<tr>");
@@ -81,6 +76,7 @@ $(document).ready(function () {
                 $("#songlist").append(tr);
             }
         });
+
         $(document).on("click", ".track", function () {
             //show player
             $("iframe").show();
@@ -88,25 +84,19 @@ $(document).ready(function () {
             track = $(this).text();
             //get clicked position in tracks array
             var pos = $(this).attr("id");
-            console.log("song position in array is: ", pos);
             //get song URI
             var uri = sortedTracks[pos].uri;
             //divide Spotify URI into segments used in URL
             var uriSplit = uri.split(":");
-            console.log(uri);
-            console.log(uriSplit);
             //tell player which song to play
             $("iframe").attr("src", embedURL + uriSplit[1] + "/" + uriSplit[2]);
             //Get and show the lyrics:
-            console.log("artist to get lyrics for is: ", searchTerm);
-            console.log("song title to get lyrics for is: ", track);
             $.ajax({
                 type:"GET",
                 url:"https://orion.apiseeds.com/api/music/lyric/"+ searchTerm +"/"+ track + "?apikey=ZozHgjxaFPqVspfH5KlFNVz4wbvJSpFZb2GGjuDEwnVNznnzEGHMBQsZgXQHMOLF",
                 async:true,
                 dataType: "json",
                 success: function(lyrics) {
-                            console.log(lyrics.result.track.text);
                             $("pre").html(lyrics.result.track.text);
                 },
                 error: function() {
