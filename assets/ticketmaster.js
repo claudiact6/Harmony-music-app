@@ -43,8 +43,8 @@ $(document).ready(function () {
                             ticketLink = json._embedded.events[i]._embedded.venues[0].url;
                             console.log(ticketLink);
                             $(ticketButton).html('More Info');
-                            $(ticketButton).addClass('btn btn-outline-primary');
-                            $(".btn").click(function() {
+                            $(ticketButton).addClass('btn btn-outline-primary ticketButton');
+                            $(".ticketButton").click(function() {
                                 window.open(ticketLink, '_blank');
                                 return false;
                             });
