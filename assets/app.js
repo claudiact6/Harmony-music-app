@@ -9,7 +9,11 @@ var responseType = "&response_type=token";
 var redirURI = "&redirect_uri=https://claudiact6.github.io/group-project-1/player";
 var embedURL = "https://open.spotify.com/embed/";
 var tracks = [];
+var sortedTracks = [];
 var track = "";
+function compare(a, b) {
+    return b.popularity-a.popularity;
+}
 
 
 $(document).ready(function () {
@@ -64,11 +68,13 @@ $(document).ready(function () {
             }
         }).then(function (response) {
             tracks = response.tracks.items;
+            //put the songs in order
+            sortedTracks = sortedTracks.sort(compare);
             //for loop to display songs
-            for (i = 0; i < tracks.length; i++) {
+            for (i = 0; i < sortedTracks.length; i++) {
                 var tr = $("<tr>");
                 var td = $("<td>");
-                td.text(tracks[i].name);
+                td.text(sortedTracks[i].name);
                 td.attr("class", "track");
                 td.attr("id", i);
                 tr.append(td);
@@ -84,7 +90,7 @@ $(document).ready(function () {
             var pos = $(this).attr("id");
             console.log("song position in array is: ", pos);
             //get song URI
-            var uri = tracks[pos].uri;
+            var uri = sortedTracks[pos].uri;
             //divide Spotify URI into segments used in URL
             var uriSplit = uri.split(":");
             console.log(uri);
@@ -101,8 +107,6 @@ $(document).ready(function () {
                 dataType: "json",
                 success: function(lyrics) {
                             console.log(lyrics.result.track.text);
-                            // Parse the response.
-                            // Do other things.
                             $("pre").html(lyrics.result.track.text);
                 },
                 error: function() {
