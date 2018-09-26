@@ -21,15 +21,13 @@
 
 <!-- NAV BAR-->
     <div class="row">
-          <div class="col-sm-5">
-                <input id="userSearch" class="search mr-sm-2" type="search" placeholder="Search by song, artist or album" aria-label="Search by song name">
-                <button id="search" class="btn btn-outline-success my-sm-0 searchButton" type="submit">►</button>
-          </div>
-          <div class="col-sm-2">
-          </div>
-          <div class="col-sm-5 mainlogodiv">
+        <div class="col-sm">
+            <input id="userSearch" class="search mr-sm-2" type="search" placeholder="Type your favorite artist" aria-label="Search by song name">
+            <button id="search" class="btn btn-outline-success my-sm-0 searchButton" type="submit">►</button>
+      </div>
+        <div class="col-sm mainlogodiv">
             <img class="mainlogo" src="assets/images/logoHarmony.png">
-          </div>
+        </div>
     </div>
 <!-- END NAV BAR-->
     <hr>
@@ -39,18 +37,21 @@
 <!-- SPOTIFY API- NOW PLAYING -->
 
           <div class="col-sm nowPlaying">
+              <div class="row titles">
+                  Now Playing:
+              </div>
+              <div class="col-sm" id="spotifyPlayer">
+                  <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+             </div>
                 <div class="row titles">
-                    Now Playing:
+                    Pick Tune:
                 </div>
-                <div class="row row" id="spotifyPlayer">
-                <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-                <br>
+                <div class="row row" id="spotifyPlayer"></div>
                 <table class="table songslist" id="songs">
                   <tbody id="songlist">
                   </tbody>
                 </table>
                 <br>
-              </div>
           </div>
 <!-- END//// SPOTIFY API- NOW PLAYING -->
 
@@ -62,105 +63,7 @@
                 </div>
                 <div class="row marquee" id="lyrics">
                     <pre> 
-Shine Bright like a diamond
-Shine Bright like a diamond
-
-Verse 1
-
-Find light in the the beautiful sea
-I choose to be happy
-You and I, You and I
-We’re like diamonds in the sky
-You’re a shooting star i see
-A vision of ecstasy
-When you hold me, i’m alive
-We’re like diamonds in the sky
-
-PRE
-
-I knew that we’d become one right away
-A right away
-At first sight I felt the energy of sun rays
-I saw the life inside your-eyes
-
-Hook
-
-So shine bright, tonight, You and I
-We’re beautiful like diamonds in the sky
-Eye to eye, so alive
-
-Hook
-
-So shine bright, tonight, You and I
-We’re beautiful like diamonds in the sky
-Eye to eye, so alive
-We’re beautiful like diamonds in the sky
-
-POST
-
-Shine Bright like a diamond
-Shine Bright like a diamond
-Shining Bright like a diamond
-We’re beautiful like diamonds in the sky
-Shine Bright like a diamond
-Shine Bright like a diamond
-Shining Bright like a diamond
-We’re beautiful like diamonds in the sky
-
-Bridge
-
-Shine Bright like a diamond
-Shine Bright like a diamond
-Shine Bright like a diamond
-
-Hook
-
-So shine bright, tonight, You and I
-We’re beautiful like diamonds in the sky
-We’re beautiful like diamonds in the sky
-
-POST
-
-Shine Bright like a diamond
-Shine Bright like a diamond
-Shining Bright like a diamond
-We’re beautiful like diamonds in the sky
-Shine Bright like a diamond
-Shine Bright like a diamond
-Shining Bright like a diamond
-We’re beautiful like diamonds in the sky
-
-Verse 2
-
-Palms rise to the universe
-As we, moonshine and molly
-Feel the warmth we’ll never die
-We’re like diamonds in the sky
-You’re a shooting star i see
-A vision of ecstasy
-When you hold me, i’m alive
-We’re like diamonds in the sky
-
-PRE 2 (half ?)
-
-At first sight I felt the energy of sun rays
-I saw the life inside your eyes
-Eye to eye, so alive
-We’re beautiful like diamonds in the sky
-
-Ad Lib outro
-
-Shining Bright like a diamond
-Shining Bright like a diamond
-Shine Bright like a diamond
-we’re beautiful like diamonds in the sky
-Shine Bright like a diamond
-Shine Bright like a diamond
-Shine Bright like a diamond
-AHHHHHHHHHHH
-Shine Bright like a diamond
-Shine Bright like a diamond
-Shine Bright like a diamond
+Your Lyrics will show here
 </pre>
                     </div>
                 <br>
@@ -168,7 +71,7 @@ Shine Bright like a diamond
 <!-- END////MUSICMATCHX API- LYRICS-->
 
 <!-- TICKETMASTER API- EVENTS NEAR YOU-->
-<div class="col-sm">
+<div class="col-sm-4">
   <div class="row titles">
       Events near you:
   </div>
@@ -186,17 +89,17 @@ Shine Bright like a diamond
                     <tr class = 'firstDate'>
                       <th scope="row" id = 'heading'>1 December</th>
                       <td class = 'venue' id = 'venue'>Palacio de los deportes</td>
-                      <td><button type="button" class="btn btn-outline-primary ticket">More Info</button></td>
+                      <td><button type="button" class="btn btn-outline-primary ticketButton">More Info</button></td>
                     </tr>
                     <tr class = 'secondDate'>
                       <th scope="row" id = 'secondDate'>2 January</th>
                       <td>Santa fe concert hall</td>
-                      <td><button type="button" class="btn btn-outline-primary ticket">More Info</button></td>
+                      <td><button type="button" class="btn btn-outline-primary ticketButton">More Info</button></td>
                     </tr>
                     <tr class = 'thirdDate'>
                       <th scope="row" id = 'thirdDate'>3 February</th>
                       <td >Auditorio Nacional</td>
-                      <td><button type="button" class="btn btn-outline-primary ticket">More Info</button></td>
+                      <td><button type="button" class="btn btn-outline-primary ticketButton">More Info</button></td>
                     </tr>
                   </tbody>
                 </table>
