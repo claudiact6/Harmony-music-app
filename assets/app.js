@@ -37,6 +37,8 @@ $(document).ready(function () {
     $("#search").on("click", function (event) {
         //Prevent default behavior
         event.preventDefault();
+        //Empty song list table
+        $("#songlist").empty();
         //Get token from URL
         var authURL = window.location.href;
         var splitAuth = authURL.split("&");
@@ -90,6 +92,8 @@ $(document).ready(function () {
             //tell player which song to play
             $("iframe").attr("src", embedURL + uriSplit[1] + "/" + uriSplit[2]);
             //Get and show the lyrics:
+            console.log("artist to get lyrics for is: ", searchTerm);
+            console.log("song title to get lyrics for is: ", track);
             $.ajax({
                 type:"GET",
                 url:"https://orion.apiseeds.com/api/music/lyric/"+ searchTerm +"/"+ track + "?apikey=ZozHgjxaFPqVspfH5KlFNVz4wbvJSpFZb2GGjuDEwnVNznnzEGHMBQsZgXQHMOLF",
