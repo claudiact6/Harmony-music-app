@@ -96,10 +96,10 @@ $(document).ready(function () {
                 async:true,
                 dataType: "json",
                 success: function(lyrics) {
-                            console.log(lyrics.result.track[text]);
+                            console.log(lyrics.result.track.text);
                             // Parse the response.
                             // Do other things.
-                            $("pre").html(lyrics.result.track[text]);
+                            $("pre").html(lyrics.result.track.text);
                 },
                 error: function() {
                     $("pre").html("Sorry, lyrics not found!");
