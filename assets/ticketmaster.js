@@ -58,7 +58,7 @@ $(document).ready(function () {
                             $('.firstDate').empty();
                             $('.secondDate').empty();
                             $('.thirdDate').empty();
-                            $('.firstDate').html('<th>'+'Not Lucky! There is no concert in your Country soon.'+'</th>');
+                            $('.firstDate').html('<th>'+'Not Lucky! There is no concert near you soon.'+'</th>');
                         }
                     // Parse the response.
                         // Do other things.

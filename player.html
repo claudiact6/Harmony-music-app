@@ -16,32 +16,33 @@
     <link href="https://fonts.googleapis.com/css?family=Lobster|Orienta|Shadows+Into+Light" rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
     <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+    <link rel="icon" type="image/gif" href="assets/images/logosmall.png"/>
 </head>
 <body>
 <div class="container">
 
 <!-- NAV BAR-->
     <div class="row">
-        <div class="col-sm">
+        <div class="col">
             <input id="userSearch" class="search mr-sm-2" type="search" placeholder="Type your favorite artist" aria-label="Search by song name">
-            <button id="search" class="btn btn-outline-success my-sm-0 searchButton" type="submit">►</button>
+            <button id="search" class="btn btn-outline-success my-sm-0 searchButton hexagon" type="submit">►</button>
       </div>
-        <div class="col-sm mainlogodiv">
-            <img class="mainlogo" src="assets/images/logoHarmony.png">
+        <div class="col">
+            <img class="logoTitle2" src="assets/images/logoHarmony.png">
         </div>
     </div>
 <!-- END NAV BAR-->
-    <hr>
+    <br>
 <!-- BODY COMPLETE CONTENT-->
         <div class="row">
 
 <!-- SPOTIFY API- NOW PLAYING -->
 
-          <div class="col-sm nowPlaying">
+          <div class="col nowPlaying">
               <div class="row titles">
                   Now Playing:
               </div>
-              <div class="col-sm" id="spotifyPlayer">
+              <div class="col" id="spotifyPlayer">
                   <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
              </div>
                 <div class="row titles">
@@ -56,7 +57,7 @@
 <!-- END//// SPOTIFY API- NOW PLAYING -->
 
 <!-- MUSICMATCHX API- LYRICS-->
-          <div class="col-sm">
+          <div class="col">
                 <div class="row titles">
                   Lyrics:
                   <br>
@@ -71,7 +72,7 @@ Your Lyrics will show here
 <!-- END////MUSICMATCHX API- LYRICS-->
 
 <!-- TICKETMASTER API- EVENTS NEAR YOU-->
-<div class="col-sm-4">
+<div class="col-4">
   <div class="row titles">
       Events near you:
   </div>
@@ -108,7 +109,7 @@ Your Lyrics will show here
 <!-- END ////TICKETMASTER API- EVENTS NEAR YOU-->
 
      </div>
-     
+
 </div>
 <!-- BODY COMPLETE CONTENT-->
 </body>
