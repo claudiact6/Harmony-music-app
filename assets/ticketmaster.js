@@ -13,6 +13,8 @@ $(document).ready(function () {
         //Assign term to search for based on user input
         searchTerm = $("#userSearch").val();
         console.log(searchTerm);
+        $('.tableticket').empty();
+
         //Search TicketMaster for search term
         $.ajax({
             type:"GET",
@@ -40,16 +42,14 @@ $(document).ready(function () {
                             $(ticketHeading).html(json._embedded.events[i].dates.start.localDate + '<br>');
                             $(ticketHeading).append(json._embedded.events[i].dates.start.localTime);
                             $(ticketVenue).html(json._embedded.events[i]._embedded.venues[0].name);
-                            ticketLink = json._embedded.events[i]._embedded.venues[0].url;
+                            ticketLink = json._embedded.events[i].url;
                             console.log(ticketLink);
-                            $(ticketButton).html('More Info');
+                            $(ticketButton).html('<a href=' + ticketLink +'>'+ 'Buy Tickets' + '</a>');
                             $(ticketButton).addClass('btn btn-outline-primary ticketButton');
+                            $('a').attr('target', '_blank');
 
                         }
-                            $(".ticketButton").click(function() {
-                                window.open(ticketLink, '_blank');
-                                return false;
-                            });
+
                             console.log(json._embedded.events[0].dates.start.localDate)
                             console.log(json._embedded.events[0].dates.start.localTime)
                             console.log(json._embedded.events[0]._embedded.venues[0].name)
