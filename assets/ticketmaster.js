@@ -24,16 +24,11 @@ $(document).ready(function () {
             success: function(json) {
                         console.log(json);
                         if(json._embedded){
-                            $('.firstDate').empty();
-                            $('.secondDate').empty();
-                            $('.thirdDate').empty();
-
                             for(var i = 0; i < json._embedded.events.length; i++){
                             var ticketRow = $('<tr>');
                             var ticketVenue = $('<td>');
                             var ticketHeading = $('<th>');
                             var ticketButton = $('<button>');
-                            debugger;
                             $('.tableticket').append(ticketRow);
                             console.log('yay');
                             $(ticketRow).append(ticketHeading);
@@ -47,9 +42,7 @@ $(document).ready(function () {
                             $(ticketButton).html('<a href=' + ticketLink +'>'+ 'Buy Tickets' + '</a>');
                             $(ticketButton).addClass('btn btn-outline-primary ticketButton');
                             $('a').attr('target', '_blank');
-
                         }
-
                             console.log(json._embedded.events[0].dates.start.localDate)
                             console.log(json._embedded.events[0].dates.start.localTime)
                             console.log(json._embedded.events[0]._embedded.venues[0].name)
