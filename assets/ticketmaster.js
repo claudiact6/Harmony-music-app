@@ -48,10 +48,8 @@ $(document).ready(function () {
                             console.log(json._embedded.events[0]._embedded.venues[0].name)
                         } else {
                             console.log('nay');
-                            $('.firstDate').empty();
-                            $('.secondDate').empty();
-                            $('.thirdDate').empty();
-                            $('.firstDate').html('<th>'+'Not Lucky! There is no concert near you soon.'+'</th>');
+
+                            $('.tableticket').append('<th>'+'Not Lucky! There is no concert near you soon.'+'</th>');
                         }
                     // Parse the response.
                         // Do other things.
