@@ -13,6 +13,8 @@ $(document).ready(function () {
         //Assign term to search for based on user input
         searchTerm = $("#userSearch").val();
         console.log(searchTerm);
+        $('.tableticket').empty();
+
         //Search TicketMaster for search term
         $.ajax({
             type:"GET",
@@ -22,16 +24,11 @@ $(document).ready(function () {
             success: function(json) {
                         console.log(json);
                         if(json._embedded){
-                            $('.firstDate').empty();
-                            $('.secondDate').empty();
-                            $('.thirdDate').empty();
-
                             for(var i = 0; i < json._embedded.events.length; i++){
                             var ticketRow = $('<tr>');
                             var ticketVenue = $('<td>');
                             var ticketHeading = $('<th>');
                             var ticketButton = $('<button>');
-                            debugger;
                             $('.tableticket').append(ticketRow);
                             console.log('yay');
                             $(ticketRow).append(ticketHeading);
@@ -40,14 +37,11 @@ $(document).ready(function () {
                             $(ticketHeading).html(json._embedded.events[i].dates.start.localDate + '<br>');
                             $(ticketHeading).append(json._embedded.events[i].dates.start.localTime);
                             $(ticketVenue).html(json._embedded.events[i]._embedded.venues[0].name);
-                            ticketLink = json._embedded.events[i]._embedded.venues[0].url;
+                            ticketLink = json._embedded.events[i].url;
                             console.log(ticketLink);
-                            $(ticketButton).html('More Info');
+                            $(ticketButton).html('<a href=' + ticketLink +'>'+ 'Buy Tickets' + '</a>');
                             $(ticketButton).addClass('btn btn-outline-primary ticketButton');
-                            $(".ticketButton").click(function() {
-                                window.open(ticketLink, '_blank');
-                                return false;
-                            });
+                            $('a').attr('target', '_blank');
                         }
                             console.log(json._embedded.events[0].dates.start.localDate)
                             console.log(json._embedded.events[0].dates.start.localTime)
@@ -57,7 +51,7 @@ $(document).ready(function () {
                             $('.firstDate').empty();
                             $('.secondDate').empty();
                             $('.thirdDate').empty();
-                            $('.firstDate').html('<th>'+'Not Lucky! There is no concert in your Country soon.'+'</th>');
+                            $('.firstDate').html('<th>'+'Not Lucky! There is no concert near you soon.'+'</th>');
                         }
                     // Parse the response.
                         // Do other things.
