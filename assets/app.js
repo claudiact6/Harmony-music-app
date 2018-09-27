@@ -1,7 +1,7 @@
 var urlBase = "https://api.spotify.com/v1/search?q="
 var searchTerm = "";
 var type = "&type=track";
-var limit = "&limit=10";
+var limit = "&limit=20";
 var token = "";
 var baseAuth = "https://accounts.spotify.com/authorize?client_id="
 var clientID = "aba6887b24004a76ae602f0e4e0d6da8";
@@ -11,6 +11,9 @@ var embedURL = "https://open.spotify.com/embed/";
 var tracks = [];
 var sortedTracks = [];
 var track = "";
+var tracksCheck = [];
+var tracksUnique = [];
+
 function compare(a, b) {
     return b.popularity-a.popularity;
 }
@@ -63,13 +66,20 @@ $(document).ready(function () {
             }
         }).then(function (response) {
             tracks = response.tracks.items;
-            //put the songs in order
+            //put the songs in order of popularity
             sortedTracks = tracks.sort(compare);
-            //for loop to display songs
-            for (i = 0; i < sortedTracks.length; i++) {
+            //eliminate repeated tracks
+            for (i=0; i<sortedTracks.length; i++) {
+                if (tracksCheck.indexOf(sortedTracks[i].name) === -1 ) {
+                    tracksCheck.push(sortedTracks[i].name);
+                    tracksUnique.push(sortedTracks[i]);
+                }
+            }
+            //for loop to display songs (limit to 10)
+            for (i = 0; i < 10; i++) {
                 var tr = $("<tr>");
                 var td = $("<td>");
-                td.text(sortedTracks[i].name);
+                td.text(tracksUnique[i].name);
                 td.attr("class", "track");
                 td.attr("id", i);
                 tr.append(td);
