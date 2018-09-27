@@ -28,12 +28,11 @@
     }
     
     .searchButton{
-    border-radius: 100%;
     }
     
     .marquee{ 
       color:white;
-      width: 100%;
+      width: 300px;
       height: 430px;
       font-size: 20px;
       overflow: -webkit-marquee;
@@ -49,7 +48,7 @@
     }
     
     .titles{
-     color: lightgray;
+     color: rgb(219, 21, 170);
      font-family: 'Lobster', cursive;
      font-size: 30px;
     opacity: .9;
@@ -79,39 +78,68 @@
     }
     
     .table{
-        background: black
     }
     
     .mainlogo{
      width: 180px;
      height: 65px;
-     align-content: center;
-     margin-left: 250px;
+     position:absolute;
+     top:60%;
+     left:40%;
+     margin-left:-100px;/* half width*/
+     margin-top:-300px;/* half height*/
+     width: 350px;
+     height: 100px;
     }
-
+.login{
+    background: gray;
+}
     .loginbutton {
-        position:absolute;
-        top:90%;
-        left:50%;
-        margin-left:-100px;/* half width*/
-        margin-top:-300px;/* half height*/
         font-family: Arial, Helvetica, sans-serif;
+        margin-top: 10px;
+        margin-left: 220px;
+        border-color: rgb(219, 21, 170);
+        color: rgb(219, 21, 170);
     }
+    .btn-outline-success {
+        color: rgb(219, 21, 170);
+        background-color: transparent;
+        background-image: none;
+        border-color: rgb(219, 21, 170);
+      }
+      
+      .btn-outline-success:hover {
+        color: #fff;
+        background-color: rgb(219, 21, 170);
+        border-color: rgb(219, 21, 170);
+      }
+      
+      .btn-outline-success:focus, .btn-outline-success.focus {
+        box-shadow: 0 0 0 0.2rem rgb(219, 21, 170);
+      }
+      
+      .btn-outline-success.disabled, .btn-outline-success:disabled {
+        color: rgb(219, 21, 170);
+        background-color: transparent;
+      }
+      
+      .btn-outline-success:not(:disabled):not(.disabled):active, .btn-outline-success:not(:disabled):not(.disabled).active,
+      .show > .btn-outline-success.dropdown-toggle {
+        color: #fff;
+        background-color: rgb(219, 21, 170);
+        border-color: rgb(219, 21, 170);
+      }
+      
+      .btn-outline-success:not(:disabled):not(.disabled):active:focus, .btn-outline-success:not(:disabled):not(.disabled).active:focus,
+      .show > .btn-outline-success.dropdown-toggle:focus {
+        box-shadow: 0 0 0 0.2rem rgb(219, 21, 170);
+      }
     .loginbutton2 {
         position:absolute;
         top:80%;
         left:40%;
-        margin-left:-100px;/* half width*/
+        margin-left:-150px;/* half width*/
         margin-top:-300px;/* half height*/
-    }
-    .loginbutton3 {
-        position:absolute;
-        top:60%;
-        left:40%;
-        margin-left:-100px;/* half width*/
-        margin-top:-300px;/* half height*/
-        width: 350px;
-        height: 100px;
     }
 
     table{
@@ -129,28 +157,113 @@
     width: 300px;
 }
 
+.head{
+    height: 50px;
+}
+.logoTitle{
+width: 180;
+height: 50px;
+margin-top: 10px;
+}
 
-a {
-    text-decoration: none;
-    color: #999;
-  }
-  
-  audio {
-    display: block;
-  }
-  
-  .eq {
-    margin: 32px;
-  }
-  
-  div.controls label {
-    display: inline-block;
-    text-align: right;
-    width: 80px;
-  }
-  
-  div.controls label, div.controls input {
-      vertical-align: middle;
-      padding: 0;
-      margin: 0;
-  }
+.video{
+   padding-right: 10px;
+}
+.logoButton{
+    width: 100px;
+    height: 30px;
+}
+
+.div3{
+    width: 1300px;
+}
+.logoTitle2{
+    width: 180;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 300px;
+    }
+
+    .hexagon {
+        width: 50px;
+        height: 35px;
+        position: relative;
+    }
+    .hexagon:before {
+        content: "";
+        position: absolute;
+        top: -25px;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+    }
+    .hexagon:after {
+        content: "";
+        position: absolute;
+        bottom: -25px;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+    }
+
+    .ticketButton{
+width: 70px;
+height: 30px;
+font-size: 10px;
+    }
+
+    .btn-outline-primary {
+        color: rgb(219, 21, 170);
+        background-color: transparent;
+        background-image: none;
+        border-color: rgb(219, 21, 170);
+      }
+      
+      .btn-outline-primary:hover {
+        color: #fff;
+        background-color: rgb(219, 21, 170);
+        border-color: rgb(219, 21, 170);
+      }
+      
+      .btn-outline-primary:focus, .btn-outline-success.focus {
+        box-shadow: 0 0 0 0.2rem rgb(219, 21, 170);
+      }
+      
+      .btn-outline-primary.disabled, .btn-outline-success:disabled {
+        color: rgb(219, 21, 170);
+        background-color: transparent;
+      }
+      
+      .btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-success:not(:disabled):not(.disabled).active,
+      .show > .btn-outline-success.dropdown-toggle {
+        color: #fff;
+        background-color: rgb(219, 21, 170);
+        border-color: rgb(219, 21, 170);
+      }
+      
+      .btn-outline-primary:not(:disabled):not(.disabled):active:focus, .btn-outline-success:not(:disabled):not(.disabled).active:focus,
+      .show > .btn-outline-success.dropdown-toggle:focus {
+        box-shadow: 0 0 0 0.2rem rgb(219, 21, 170);
+      }
+      tr{
+          border-color: red;
+      }
+      .placeholder{
+          height: 30px;
+          width: 50px;
+      }
+
+      .table-dark{
+          background: black;
+      }
+
+      #main{
+          background: black;
+      }
+      #video{
+          opacity: .7;
+      }
