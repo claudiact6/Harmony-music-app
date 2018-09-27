@@ -45,6 +45,9 @@ $(document).ready(function () {
         event.preventDefault();
         //Empty song list table
         $("#songlist").empty();
+        //Empty track arrays
+        tracksCheck.length = 0;
+        tracksUnique.length = 0;
         //Get token from URL
         var authURL = window.location.href;
         var splitAuth = authURL.split("&");
