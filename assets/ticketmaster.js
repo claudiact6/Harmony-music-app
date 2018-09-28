@@ -1,7 +1,7 @@
 //variables for TicketMaster API
 var searchTerm = '';
 var tbody = $('<tbody>');
-
+var eventsUnix = [];
 var ticketLink = '';
 
 
@@ -24,6 +24,13 @@ $(document).ready(function () {
             success: function(json) {
                         console.log(json);
                         if(json._embedded){
+                            var sortedEvents = json._embedded.events.sort(function(a,b){
+                                // Turn your strings into dates, and then subtract them
+                                // to get a value that is either negative, positive, or zero.
+                                return new Date(a.dates.start.localDate) - new Date(b.dates.start.localDate);
+                            });
+                            console.log('eventos sorteados');
+                            console.log(sortedEvents);
                             for(var i = 0; i < json._embedded.events.length; i++){
                             var ticketRow = $('<tr>');
                             var ticketVenue = $('<td>');
