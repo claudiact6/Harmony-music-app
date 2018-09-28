@@ -218,13 +218,15 @@ text-align: center;
 text-decoration: none;
     }
 
-    .artistButton{
-        width: 70px;
-        height: 30px;
-        font-size: 10px;
-        text-align: center;
-        text-decoration: none;
-            }
+.artistButton{
+    width: 70px;
+    height: 30px;
+    font-size: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-family: "Orienta", sans-serif;
+    color: white;
+    }
 
     .btn-outline-primary {
         color: rgb(219, 21, 170);
