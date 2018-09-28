@@ -3,7 +3,13 @@
         width: 180px;
         height: 60px;
     }
-    
+
+    a, a:hover {
+        text-decoration: none;
+        color: white;
+    }
+
+
     body {
         background-image: url("images/wallpaper.jpg");
         color: white;
@@ -267,3 +273,19 @@ font-size: 10px;
       #video{
           opacity: .7;
       }
+   #track > tr > td {
+        color: red;
+      }
+      
+     #track > td > a:hover,
+ #track > td > a:active,
+#track > td > a:focus{
+        color: white;
+        background-color: purple;
+      }
+
+.master, .master:visited  {
+    margin-top: 40%;
+    font-weight: bold;
+    color: white;
+}
