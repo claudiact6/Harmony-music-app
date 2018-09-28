@@ -131,5 +131,5 @@ database.ref().limitToLast(8).on("child_added", function (snapshot) {
     var td = $("<td>");
     td.text(searchedFor);
     tr.append(td);
-    $("#searchlist").append(tr);
+    $("#searchlist").prepend(tr);
 });
