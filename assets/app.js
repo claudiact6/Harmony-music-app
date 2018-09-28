@@ -120,15 +120,64 @@ $(document).ready(function () {
         })
     });
 
+    $(document).on("click", ".artistButton", function (event) {
+        //Prevent default behavior
+        event.preventDefault();
+        //Empty song list table
+        $("#songlist").empty();
+        //Empty track arrays
+        tracksCheck.length = 0;
+        tracksUnique.length = 0;
+        //Get token from URL
+        var authURL = window.location.href;
+        var splitAuth = authURL.split("&");
+        var tokenSplit = splitAuth[0].split("=");
+        var token = tokenSplit[1];
+        //Assign term to search for based on user input
+        searchTerm = $(this).text();
+
+        //Save search term to firebase *********************
+
+        database.ref().push(searchTerm);
+
+        //Search Spotify for search term
+        $.ajax({
+            url: urlBase + searchTerm + type + limit,
+            method: "GET",
+            headers: {
+                Authorization: "Bearer " + token
+            }
+        }).then(function (response) {
+            tracks = response.tracks.items;
+            //put the songs in order of popularity
+            sortedTracks = tracks.sort(compare);
+            //eliminate repeated tracks
+            for (i = 0; i < sortedTracks.length; i++) {
+                if (tracksCheck.indexOf(sortedTracks[i].name) === -1) {
+                    tracksCheck.push(sortedTracks[i].name);
+                    tracksUnique.push(sortedTracks[i]);
+                }
+            }
+            //for loop to display songs (limit to 10)
+            for (j = 0; j < 10; j++) {
+                var tr = $("<tr>");
+                var td = $("<td>");
+                td.text(tracksUnique[j].name);
+                td.attr("class", "track");
+                td.attr("id", j);
+                tr.append(td);
+                $("#songlist").append(tr);
+            }
+        });
+
     //Firebase listener to update "others are searching for":
-    database.ref().limitToLast(8).on("child_added", function (snapshot) {
+    database.ref().limitToLast(20).on("child_added", function (snapshot) {
         var searchedFor = snapshot.val();
         console.log(searchedFor);
-        var tr = $("<tr>");
-        var td = $("<td>");
-        td.text(searchedFor);
-        tr.append(td);
-        $("#searchlist").prepend(tr);
+        var button = $("<button>");
+        button.attr("class", "btn btn-outline-primary artistButton");
+        button.text(searchedFor);
+        $("#searchlist").prepend(button);
     });
 
 });
