@@ -124,11 +124,10 @@ $(document).ready(function () {
     database.ref().limitToLast(8).on("child_added", function (snapshot) {
         var searchedFor = snapshot.val();
         console.log(searchedFor);
-        var tr = $("<tr>");
-        var td = $("<td>");
-        td.text(searchedFor);
-        tr.append(td);
-        $("#searchlist").prepend(tr);
+        var button = $("<button>");
+        button.attr("class", "btn btn-outline-primary ticketButton");
+        button.text(searchedFor);
+        $("#searchlist").prepend(button);
     });
 
 });
