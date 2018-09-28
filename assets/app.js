@@ -169,6 +169,7 @@ $(document).ready(function () {
                 $("#songlist").append(tr);
             }
         });
+    });
 
     //Firebase listener to update "others are searching for":
     database.ref().limitToLast(20).on("child_added", function (snapshot) {
