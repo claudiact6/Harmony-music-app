@@ -74,7 +74,6 @@ $(document).on("click", ".artistButton", function (event) {
         event.preventDefault();
         //Assign term to search for based on user input
         var searchTerm1 = $(event.target).text();
-        debugger;
         console.log('yoyo');
         console.log(searchTerm1);
         $('.tableticket').empty();
