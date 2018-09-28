@@ -99,7 +99,7 @@ $(document).ready(function () {
             //get clicked position in tracks array
             var pos = $(this).attr("id");
             //get song URI
-            var uri = sortedTracks[pos].uri;
+            var uri = tracksUnique[pos].uri;
             //divide Spotify URI into segments used in URL
             var uriSplit = uri.split(":");
             //tell player which song to play
