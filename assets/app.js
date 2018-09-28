@@ -120,16 +120,16 @@ $(document).ready(function () {
         })
     });
 
+    //Firebase listener to update "others are searching for":
+    database.ref().limitToLast(8).on("child_added", function (snapshot) {
+        var searchedFor = snapshot.val();
+        console.log(searchedFor);
+        var tr = $("<tr>");
+        var td = $("<td>");
+        td.text(searchedFor);
+        tr.append(td);
+        $("#searchlist").prepend(tr);
+    });
 
 });
 
-//Firebase listener to update "others are searching for":
-database.ref().limitToLast(8).on("child_added", function (snapshot) {
-    var searchedFor = snapshot.val();
-    console.log(searchedFor);
-    var tr = $("<tr>");
-    var td = $("<td>");
-    td.text(searchedFor);
-    tr.append(td);
-    $("#searchlist").prepend(tr);
-});
