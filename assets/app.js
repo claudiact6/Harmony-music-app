@@ -174,10 +174,10 @@ $(document).ready(function () {
     //Firebase listener to update "others are searching for":
     database.ref().limitToLast(20).on("child_added", function (snapshot) {
         var searchedFor = snapshot.val();
-        console.log(searchedFor);
+        var artistName = v.titleCase(searchedFor);
         var button = $("<button>");
-        button.attr("class", "btn btn-outline-primary artistButton");
-        button.text(searchedFor);
+        button.attr("class", "btn btn-outline-primary artistButton text-white m-1");
+        button.text(artistName);
         $("#searchlist").prepend(button);
     });
 
