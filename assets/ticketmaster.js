@@ -47,7 +47,7 @@ $(document).ready(function () {
                             ticketLink = json._embedded.events[i].url;
                             console.log(ticketLink);
                             $(ticketButton).html('<a href=' + ticketLink +'>'+ 'Buy Tickets' + '</a>');
-                            $(ticketButton).addClass('btn btn-outline-primary ticketButton');
+                            $(ticketButton).addClass('btn btn-outline-primary ticketButton master');
                             $('a').attr('target', '_blank');
                         }
                             console.log(json._embedded.events[0].dates.start.localDate)

@@ -3,7 +3,13 @@
         width: 180px;
         height: 60px;
     }
-    
+
+    a, a:hover {
+        text-decoration: none;
+        color: white;
+    }
+
+
     body {
         background-image: url("images/wallpaper.jpg");
         color: white;
@@ -280,3 +286,9 @@ text-decoration: none;
         color: white;
         background-color: purple;
       }
+
+.master, .master:visited  {
+    margin-top: 40%;
+    font-weight: bold;
+    color: white;
+}
