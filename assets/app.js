@@ -15,7 +15,7 @@ var tracksCheck = [];
 var tracksUnique = [];
 
 function compare(a, b) {
-    return b.popularity-a.popularity;
+    return b.popularity - a.popularity;
 }
 
 $(document).ready(function () {
@@ -31,6 +31,7 @@ $(document).ready(function () {
         messagingSenderId: "723221071715"
     };
     firebase.initializeApp(config);
+
     var database = firebase.database();
 
     $("#login").on("click", function (event) {
@@ -72,15 +73,14 @@ $(document).ready(function () {
             //put the songs in order of popularity
             sortedTracks = tracks.sort(compare);
             //eliminate repeated tracks
-            for (i=0; i<sortedTracks.length; i++) {
-                if (tracksCheck.indexOf(sortedTracks[i].name) === -1 ) {
+            for (i = 0; i < sortedTracks.length; i++) {
+                if (tracksCheck.indexOf(sortedTracks[i].name) === -1) {
                     tracksCheck.push(sortedTracks[i].name);
                     tracksUnique.push(sortedTracks[i]);
                 }
             }
             //for loop to display songs (limit to 10)
             for (j = 0; j < 10; j++) {
-                console.log(tracksUnique[j].name);
                 var tr = $("<tr>");
                 var td = $("<td>");
                 td.text(tracksUnique[j].name);
@@ -106,14 +106,14 @@ $(document).ready(function () {
             $("iframe").attr("src", embedURL + uriSplit[1] + "/" + uriSplit[2]);
             //Get and show the lyrics:
             $.ajax({
-                type:"GET",
-                url:"https://orion.apiseeds.com/api/music/lyric/"+ searchTerm +"/"+ track + "?apikey=ZozHgjxaFPqVspfH5KlFNVz4wbvJSpFZb2GGjuDEwnVNznnzEGHMBQsZgXQHMOLF",
-                async:true,
+                type: "GET",
+                url: "https://orion.apiseeds.com/api/music/lyric/" + searchTerm + "/" + track + "?apikey=ZozHgjxaFPqVspfH5KlFNVz4wbvJSpFZb2GGjuDEwnVNznnzEGHMBQsZgXQHMOLF",
+                async: true,
                 dataType: "json",
-                success: function(lyrics) {
-                            $("pre").html(lyrics.result.track.text);
+                success: function (lyrics) {
+                    $("pre").html(lyrics.result.track.text);
                 },
-                error: function() {
+                error: function () {
                     $("pre").html("Sorry, lyrics not found!");
                 }
             });
@@ -121,4 +121,15 @@ $(document).ready(function () {
     });
 
 
+});
+
+//Firebase listener to update "others are searching for":
+database.ref().limitToLast(8).on("child_added", function (snapshot) {
+    var searchedFor = snapshot.val();
+    console.log(searchedFor);
+    var tr = $("<tr>");
+    var td = $("<td>");
+    td.text(searchedFor);
+    tr.append(td);
+    $("#searchlist").append(tr);
 });
