@@ -6,7 +6,7 @@ var token = "";
 var baseAuth = "https://accounts.spotify.com/authorize?client_id="
 var clientID = "aba6887b24004a76ae602f0e4e0d6da8";
 var responseType = "&response_type=token";
-var redirURI = "&redirect_uri=https://claudiact6.github.io/group-project-1/player";
+var redirURI = "&redirect_uri=https://claudiact6.github.io/Harmony-music-app/player";
 var embedURL = "https://open.spotify.com/embed/";
 var tracks = [];
 var sortedTracks = [];
